@@ -12,6 +12,7 @@ import 'filepond/dist/filepond.min.css';
 import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+import axios from 'axios';
 
 // Register the plugins
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
@@ -19,18 +20,31 @@ registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 // Our app
 function UpdateUserImage() {
     const [files, setFiles] = useState([]);
+    const [nickname, setNickname] = useState('');
 
     const handleUpdate = (files)=>{
-        console.log(files)
-        console.log(files[0])
-        console.log(files[0].file)
+        // console.log(files)
+        // console.log(files[0])
+        // console.log(files[0].file)
         setFiles(files)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         console.log('handle submit clicked')
-        console.log(files)
+        console.log('file: ', files[0])
+        console.log('nickname: ',nickname)
+        let data = new FormData()
+        if(files[0] && files[0].file ){
+          data.append('fileYo', files[0].file)
+        }
+        data.append('nickname', nickname)
+        try{
+          let res = await axios.put('/api/users/image_demo_1', data)
+          console.log('res: ', res)
+        } catch(err){
+            console.log(err)
+        }
     }
 
     return (
@@ -44,8 +58,8 @@ function UpdateUserImage() {
                 name="files"
                 labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
             />
-            <p>name</p>
-            <input />
+            <p>nickname</p>
+            <input value={nickname} onChange={(e)=> setNickname(e.target.value)}/>
             <button type='submit'>update</button>
             </form>
             

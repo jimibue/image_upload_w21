@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :api do
     resources :cats, only: [:index, :update]
+    put 'users/image_demo_1', to:'users#image_demo_1'
   end
 end

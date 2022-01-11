@@ -18,7 +18,7 @@ import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 // Our app
-function FilePondDemo() {
+function FilePondDemo({id}) {
     const [files, setFiles] = useState([]);
     return (
         <div className="App">
@@ -27,7 +27,7 @@ function FilePondDemo() {
                 onupdatefiles={setFiles}
                 allowMultiple={true}
                 maxFiles={3}
-                server="/api"
+                server={`/api/users/image_demo_2/${id}`}
                 name="files"
                 labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
             />

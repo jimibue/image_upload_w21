@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :cats, only: [:index, :update]
     put 'users/image_demo_1', to:'users#image_demo_1'
+    post 'users/image_demo_2/:id', to:'users#image_demo_2'
   end
 end

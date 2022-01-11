@@ -14,7 +14,7 @@ const Home = () => {
       <p>nickname: {auth.nickname}</p>
       <img src={auth.image} width='400' height='400'/>
       <h1>FilePondDemo 1</h1>
-      <FilePondDemo />
+      <FilePondDemo id={auth.id} />
       <h1>FilePondDemo 2</h1>
       <UpdateUserImage />
     </div>

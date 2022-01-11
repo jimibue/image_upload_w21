@@ -23,18 +23,13 @@ function UpdateUserImage() {
     const [nickname, setNickname] = useState('');
 
     const handleUpdate = (files)=>{
-        // console.log(files)
-        // console.log(files[0])
-        // console.log(files[0].file)
         setFiles(files)
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log('handle submit clicked')
-        console.log('file: ', files[0])
-        console.log('nickname: ',nickname)
-        let data = new FormData()
+
+        let data = new FormData
         if(files[0] && files[0].file ){
           data.append('fileYo', files[0].file)
         }

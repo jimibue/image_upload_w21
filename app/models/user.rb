@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   # liked_cats as text in our db, but we can treat it like an array here
   serialize :liked_cats, Array
 
+  has_many :images
+
   extend Devise::Models
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

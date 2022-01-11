@@ -6,17 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# u1 = User.create(email: "test@test.com", password: 123456)
+u1 = User.create(email: "test@test.com", password: 123456)
 # u2 = User.create(email: "test", password: 123456)
 # u3 = User.create(email: "test1@test.com", password: 123)
 # u4 = User.create(email: "test@test.com", password: 123456)
 
-20.times do
-  name = Faker::Creature::Cat.name
-  breed = Faker::Creature::Cat.breed
-  registry = Faker::Creature::Cat.registry
-  avatar = Faker::Avatar.image(slug: name, size: "100x400", format: "png", set: "set4")
-  Cat.create(name: name, breed: breed, registry: registry, avatar: avatar)
-end
+# 20.times do
+#   name = Faker::Creature::Cat.name
+#   breed = Faker::Creature::Cat.breed
+#   registry = Faker::Creature::Cat.registry
+#   avatar = Faker::Avatar.image(slug: name, size: "100x400", format: "png", set: "set4")
+#   Cat.create(name: name, breed: breed, registry: registry, avatar: avatar)
+# end
 
-puts "20 Cats Seeded"
+# puts "20 Cats Seeded"
